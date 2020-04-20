@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Snowdrop weekly report</title>
+<subtitle>19 Apr 2020</subtitle>
+<date>2020-04-20</date>
+</info>
+<section xml:id="_snowdrop_weekly_report_19_apr_2020">
+<title>Snowdrop weekly report: 19 Apr 2020</title>
+
+</section>
+<section xml:id="_action_items">
+<title>Action Items</title>
+<informaltable frame="all" rowsep="1" colsep="1">
+<tgroup cols="4">
+<colspec colname="col_1" colwidth="25*"/>
+<colspec colname="col_2" colwidth="25*"/>
+<colspec colname="col_3" colwidth="25*"/>
+<colspec colname="col_4" colwidth="25*"/>
+<thead>
+<row>
+<entry align="left" valign="top">Item</entry>
+<entry align="left" valign="top">Description</entry>
+<entry align="left" valign="top">Who</entry>
+<entry align="left" valign="top">Status</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry align="left" valign="top"><simpara>001</simpara></entry>
+<entry align="left" valign="top"><simpara>Review the existing process to include a freeze period</simpara></entry>
+<entry align="left" valign="top"><simpara>AMH</simpara></entry>
+<entry align="left" valign="top"><simpara>In progress</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara>002</simpara></entry>
+<entry align="left" valign="top"><simpara>Enhance the snowdrop bot tool to report the tickets with status "closed", "in progress"</simpara></entry>
+<entry align="left" valign="top"><simpara>CL</simpara></entry>
+<entry align="left" valign="top"><simpara>In Progress</simpara></entry>
+</row>
+<row>
+<entry align="left" valign="top"><simpara><link xl:href="https://github.com/snowdrop/issues/3">003</link></simpara></entry>
+<entry align="left" valign="top"><simpara>Populate an asciidoctor report</simpara></entry>
+<entry align="left" valign="top"><simpara>IC</simpara></entry>
+<entry align="left" valign="top"><simpara>In Progress</simpara></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</section>
+<section xml:id="_gytis_trikleris">
+<title>Gytis Trikleris</title>
+<itemizedlist>
+<listitem>
+<simpara>Spring on Quarkus</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Develop Panache REST <link xl:href="https://github.com/cmoulliard/weekly-report/issues/1">code</link></simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="_georgios_andrianakis">
+<title>Georgios Andrianakis</title>
+<itemizedlist>
+<listitem>
+<simpara>Spring on Quarkus</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Test related fixes</simpara>
+<itemizedlist>
+<listitem>
+<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8491">#8491</link>: Make beans injected with @InjectMock unremoveable.</simpara>
+</listitem>
+<listitem>
+<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8597">#8597</link>: Allow the use of @QuarkusTestResource with QuarkusProdModeTest</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>RELEASE SB 2.2.6</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Help Antonio and Auri</simpara>
+</listitem>
+<listitem>
+<simpara>Help team with CVE + JIRA handling</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Misc</simpara>
+<itemizedlist>
+<listitem>
+<simpara>PR Reviews</simpara>
+</listitem>
+<listitem>
+<simpara>Community engagement</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</section>
+</article>
