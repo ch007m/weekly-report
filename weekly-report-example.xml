@@ -57,7 +57,7 @@
 <simpara>Spring on Quarkus</simpara>
 <itemizedlist>
 <listitem>
-<simpara>Develop Panache REST <link xl:href="https://github.com/cmoulliard/weekly-report/issues/1">code</link></simpara>
+<simpara>Code Panache REST client <link xl:href="https://github.com/cmoulliard/weekly-report/issues/1">https://github.com/cmoulliard/weekly-report/issues/1</link></simpara>
 </listitem>
 </itemizedlist>
 </listitem>
@@ -73,10 +73,10 @@
 <simpara>Test related fixes</simpara>
 <itemizedlist>
 <listitem>
-<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8491">#8491</link>: Make beans injected with @InjectMock unremoveable.</simpara>
+<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8491">https://github.com/quarkusio/quarkus/pull/8491</link>: Make beans injected with @InjectMock unremoveable.</simpara>
 </listitem>
 <listitem>
-<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8597">#8597</link>: Allow the use of @QuarkusTestResource with QuarkusProdModeTest</simpara>
+<simpara><link xl:href="https://github.com/quarkusio/quarkus/pull/8597">https://github.com/quarkusio/quarkus/pull/8597</link>: Allow the use of @QuarkusTestResource with QuarkusProdModeTest</simpara>
 </listitem>
 </itemizedlist>
 </listitem>

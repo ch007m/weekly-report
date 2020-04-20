@@ -24,14 +24,14 @@
 == Gytis Trikleris
 
 * Spring on Quarkus
-** Develop Panache REST https://github.com/cmoulliard/weekly-report/issues/1[code]
+** Code Panache REST client https://github.com/cmoulliard/weekly-report/issues/1[https://github.com/cmoulliard/weekly-report/issues/1]
 
 == Georgios Andrianakis
 
 * Spring on Quarkus
 ** Test related fixes
-*** https://github.com/quarkusio/quarkus/pull/8491[#8491]: Make beans injected with @InjectMock unremoveable.
-*** https://github.com/quarkusio/quarkus/pull/8597[#8597]: Allow the use of @QuarkusTestResource with QuarkusProdModeTest
+*** https://github.com/quarkusio/quarkus/pull/8491[https://github.com/quarkusio/quarkus/pull/8491]: Make beans injected with @InjectMock unremoveable.
+*** https://github.com/quarkusio/quarkus/pull/8597[https://github.com/quarkusio/quarkus/pull/8597]: Allow the use of @QuarkusTestResource with QuarkusProdModeTest
 
 * RELEASE SB 2.2.6
 ** Help Antonio and Auri
