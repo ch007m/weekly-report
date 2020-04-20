@@ -34,14 +34,18 @@ assignees: ''
 * Category 1
 ** Task 1
 *** Sub task 1
-** Develop Panache REST https://github.com/cmoulliard/weekly-report/issues/1[code]
+
 
 == Associate 2
 
 * Category 1
 ** Task 1
-*** Sub task 1
+
+* Category 2
 ** Task 1
+*** Sub task 1
+*** Sub task 2
+** Task 2
 *** Sub task 1
    
 

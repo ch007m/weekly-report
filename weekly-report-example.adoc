@@ -1,0 +1,45 @@
+== Snowdrop weekly report: 19 Apr 2020
+
+== Action Items
+
+|===
+| Item | Description | Who | Status
+
+| 001
+| Review the existing process to include a freeze period
+| AMH
+| In progress
+
+| 002
+| Enhance the snowdrop bot tool to report the tickets with status "closed", "in progress"
+| CL
+| In Progress
+
+| https://github.com/snowdrop/issues/3[003]
+| Populate an asciidoctor report
+| IC
+| In Progress
+|===
+
+== Gytis Trikleris
+
+* Spring on Quarkus
+** Develop Panache REST https://github.com/cmoulliard/weekly-report/issues/1[code]
+
+== Georgios Andrianakis
+
+* Spring on Quarkus
+** Test related fixes
+*** https://github.com/quarkusio/quarkus/pull/8491[#8491]: Make beans injected with @InjectMock unremoveable.
+*** https://github.com/quarkusio/quarkus/pull/8597[#8597]: Allow the use of @QuarkusTestResource with QuarkusProdModeTest
+
+* RELEASE SB 2.2.6
+** Help Antonio and Auri
+** Help team with CVE + JIRA handling
+
+* Misc
+** PR Reviews
+** Community engagement
+
+   
+
