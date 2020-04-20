@@ -1,6 +1,6 @@
 ---
-name: Weekly Report template
-about: Team weekly report
+name: Weekly Report using Asciidoctor template
+about: Team weekly report (adoc)
 title: 'yyyy-mm-dd-weekly-snowdrop-report'
 labels: 'report'
 assignees: ''
