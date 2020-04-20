@@ -17,7 +17,7 @@ assignees: ''
 | 001
 | What to do 1
 | Associate 1
-| Done |
+| Done
 
 | 002
 | What to do 2
@@ -27,7 +27,7 @@ assignees: ''
 | https://github.com/snowdrop/issues/3[003]
 | What to do 2
 | Associate 4
-| In Progress |
+| In Progress
 |===
 
 == Associate 1
