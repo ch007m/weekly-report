@@ -8,21 +8,21 @@
 | 002                                         | Enhance the snowdrop bot tool to report the tickets with status "closed", "in progress" | CL  | In Progress |
 | [003](https://github.com/snowdrop/issues/3) | Populate an asciidoctor report                                                          | IC  | In Progress |
 
-# Gytis Trikleris
+## Gytis Trikleris
 
-  - Spring on Quarkus
-      - Code Panache REST client - <https://github.com/cmoulliard/weekly-report/issues/1>
+ - Spring on Quarkus
+   - Code Panache REST client - <https://github.com/cmoulliard/weekly-report/issues/1>
 
 # Georgios Andrianakis
 
-  - Spring on Quarkus
-      - Test related fixes
-          - Make beans injected with @InjectMock unremoveable - <https://github.com/quarkusio/quarkus/pull/8491>
-          - Allow the use of @QuarkusTestResource with QuarkusProdModeTest - <https://github.com/quarkusio/quarkus/pull/8597>
+- Spring on Quarkus
+    - Test related fixes
+        - Make beans injected with @InjectMock unremoveable - <https://github.com/quarkusio/quarkus/pull/8491>
+        - Allow the use of @QuarkusTestResource with QuarkusProdModeTest - <https://github.com/quarkusio/quarkus/pull/8597>
 
-  - RELEASE SB 2.2.6
-      - Help Antonio and Auri
-      - Help team with CVE + JIRA handling
-  - Misc
-      - PR Reviews
-      - Community engagement
+- RELEASE SB 2.2.6
+    - Help Antonio and Auri
+    - Help team with CVE + JIRA handling
+- Misc
+    - PR Reviews
+    - Community engagement
