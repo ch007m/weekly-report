@@ -8,12 +8,13 @@
 | 002                                         | Enhance the snowdrop bot tool to report the tickets with status "closed", "in progress" | CL  | In Progress |
 | [003](https://github.com/snowdrop/issues/3) | Populate an asciidoctor report                                                          | IC  | In Progress |
 
+
 ## Gytis Trikleris
 
  - Spring on Quarkus
    - Code Panache REST client - <https://github.com/cmoulliard/weekly-report/issues/1>
 
-# Georgios Andrianakis
+## Georgios Andrianakis
 
 - Spring on Quarkus
     - Test related fixes
