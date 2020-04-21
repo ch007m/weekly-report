@@ -8,6 +8,7 @@
 | 002                                         | Enhance the snowdrop bot tool to report the tickets with status "closed", "in progress" | CL  | In Progress |
 | [003](https://github.com/snowdrop/issues/3) | Populate an asciidoctor report                                                          | IC  | In Progress |
 
+---
 
 ## Gytis Trikleris
 
