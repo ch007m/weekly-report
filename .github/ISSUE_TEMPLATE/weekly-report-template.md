@@ -1,9 +1,10 @@
 ---
 name: Weekly Report template
 about: Team weekly report
-title: 'yyyy-mm-dd-weekly-snowdrop-report'
-labels: 'report'
+title: yyyy-mm-dd-weekly-snowdrop-report
+labels: report
 assignees: ''
+
 ---
 
 <!-- Please only use this template for submitting the weekly report -->
@@ -30,6 +31,4 @@ assignees: ''
   * Task 1
     * Sub task 1 
   * Task 1
-    * Sub task 1   
-   
-
+    * Sub task 1
