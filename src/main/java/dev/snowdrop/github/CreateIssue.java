@@ -6,15 +6,13 @@ import java.io.IOException;
 
 public class CreateIssue {
 
-    // OAuth personal token
-    private static String OAUTH = "b72038ec1978dc6cdef70a2396c2390efc49ae63";
     private static String ORG = "snowdrop";
     private static String TEAM_REPO = "snowdrop/snowdrop-team";
 
     public static void main(String[] args) {
 
         try {
-            GitHub github = new GitHubBuilder().withOAuthToken(OAUTH).build();
+            GitHub github = new GitHubBuilder().fromPropertyFile().build();
             GHUser org = github.getUser(ORG);
 
             // List repositories of Snowdrop Org
