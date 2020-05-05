@@ -1,15 +1,12 @@
 package dev.snowdrop.github;
 
+import net.steppschuh.markdowngenerator.MarkdownBuilder;
 import net.steppschuh.markdowngenerator.MarkdownSerializationException;
-import net.steppschuh.markdowngenerator.list.TaskList;
-import net.steppschuh.markdowngenerator.list.TaskListItem;
-import net.steppschuh.markdowngenerator.list.UnorderedList;
-import net.steppschuh.markdowngenerator.list.UnorderedListItem;
+import net.steppschuh.markdowngenerator.list.*;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -62,22 +59,48 @@ public class Helper {
                 .append(new Text(txt));
     }
 
+    public static ListBuilder populateNestedLists(ListBuilder b, Object[] items) {
+        if ( b == null) {
+            b = new ListBuilder();
+        }
+        for (Object item : items) {
+            if (item instanceof String) {
+                b.append(item);
+            } else if (item instanceof Object[]) {
+                return populateNestedLists(new ListBuilder(b), (Object[]) item);
+            }
+        }
+        return b;
+    }
     public static UnorderedList getUnorderedList(Object... items) {
         List list = new LinkedList();
 
         for (Object item : items) {
             if (item instanceof String) {
                 list.add(new UnorderedListItem(item));
-            } else if (item instanceof String[]) {
+            } else if (item instanceof Object[]) {
                 list.add(getUnorderedList(item));
             }
         }
-
         return new UnorderedList(list);
     }
 
     public static String toMarkdown(Object... items) throws MarkdownSerializationException {
-        return getUnorderedList(items).serialize();
+        //return getUnorderedList(items).serialize();
+        ListBuilder b = populateNestedLists(null, items);
+        return iterateParentBuilder(null, b).toString();
+    }
+
+    protected static StringBuilder iterateParentBuilder(StringBuilder sb, MarkdownBuilder b) {
+        if (sb == null) {
+            sb = new StringBuilder();
+        }
+        MarkdownBuilder p = b.getParentBuilder();
+        if (p != null) {
+            sb.append(p.build()).append(CR);
+            iterateParentBuilder(sb, p);
+        }
+        return sb.append(b.build());
     }
 
     public static StringBuilder addActionItemsTable() {
