@@ -7,6 +7,7 @@ import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Helper {
           .append(CR)
           .append(addHeadingTitle("Heading with level 3", 3))
           .append(CR)
-          .append(addUnorderedList("Item 1", "Item 2", "Item 3"))
+          .append(addUnorderedList(null,"Item 1", "Item 2", "Item 3"))
           .append(CR);
 
 
@@ -58,9 +59,21 @@ public class Helper {
                 .append(new Text(txt));
     }
 
-    public static StringBuilder addUnorderedList(String... items) {
-        List<String> l = Arrays.asList(items);
-        return new StringBuilder().append(new UnorderedList<String>(l));
+    public static StringBuilder addUnorderedList(List newList, Object... items) {
+        if (newList == null) {
+            newList = new ArrayList<>();
+        }
+        List<Object> listItems = Arrays.asList(items);
+
+        for(Object item : listItems) {
+            if (item instanceof String) {
+                newList.add((String)item);
+            } else if (item instanceof String[]) {
+                //addUnorderedList(newList,(String[])item);
+                newList.add(new UnorderedList<String>(Arrays.asList((String[])item)));
+            }
+        }
+        return new StringBuilder().append(new UnorderedList<>(newList));
     }
 
     public static StringBuilder addActionItemsTable() {

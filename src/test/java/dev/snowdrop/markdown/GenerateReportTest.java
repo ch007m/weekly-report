@@ -48,12 +48,14 @@ public class GenerateReportTest {
             "---------------\n" +
             "- Item 1\n" +
             "- Item 2\n" +
-            "- Item 3\n" +
+            "  - Item 1.1\n" +
+            "  - Item 1.2\n" +
             "Georgios Andrianakis\n" +
             "--------------------\n" +
             "- Item 1\n" +
             "- Item 2\n" +
-            "- Item 3" +
+            "  - Item 1.1\n" +
+            "  - Item 1.2" +
             "\n";
 
     @Test
@@ -81,7 +83,7 @@ public class GenerateReportTest {
 
         for(String associate: associates) {
             sb.append(addHeadingTitle(associate,2)).append(CR);
-            sb.append(addUnorderedList(new String[]{"Item 1", "Item 2", "Item 3"})).append(CR);
+            sb.append(addUnorderedList(null,new Object[]{"Item 1", "Item 2", new String[]{"Item 1.1", "Item 1.2"}})).append(CR);
         }
 
         String result = sb.toString();
