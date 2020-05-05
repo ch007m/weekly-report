@@ -59,18 +59,18 @@ public class Helper {
                 .append(new Text(txt));
     }
 
-    public static ListBuilder populateNestedLists(ListBuilder b, Object[] items) {
-        if ( b == null) {
-            b = new ListBuilder();
+    public static UnorderedList populateNestedLists(UnorderedList unorderedList, Object[] items) {
+        if ( unorderedList == null) {
+            unorderedList = new UnorderedList();
         }
         for (Object item : items) {
             if (item instanceof String) {
-                b.append(item);
+                unorderedList.getItems().add(item);
             } else if (item instanceof Object[]) {
-                return populateNestedLists(new ListBuilder(b), (Object[]) item);
+                return populateNestedLists(null, (Object[]) item);
             }
         }
-        return b;
+        return unorderedList;
     }
     public static UnorderedList getUnorderedList(Object... items) {
         List list = new LinkedList();
@@ -87,8 +87,7 @@ public class Helper {
 
     public static String toMarkdown(Object... items) throws MarkdownSerializationException {
         //return getUnorderedList(items).serialize();
-        ListBuilder b = populateNestedLists(null, items);
-        return iterateParentBuilder(null, b).toString();
+        return populateNestedLists(null, items).toString();
     }
 
     protected static StringBuilder iterateParentBuilder(StringBuilder sb, MarkdownBuilder b) {
@@ -97,10 +96,10 @@ public class Helper {
         }
         MarkdownBuilder p = b.getParentBuilder();
         if (p != null) {
-            sb.append(p.build()).append(CR);
+            sb.append(CR);
             iterateParentBuilder(sb, p);
         }
-        return sb.append(b.build());
+        return sb.append(b.build()).append(CR);
     }
 
     public static StringBuilder addActionItemsTable() {
