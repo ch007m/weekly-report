@@ -1,6 +1,5 @@
 package dev.snowdrop.markdown;
 
-import org.commonmark.node.BulletList;
 import org.commonmark.node.ListItem;
 import org.commonmark.node.Node;
 import org.commonmark.node.Text;

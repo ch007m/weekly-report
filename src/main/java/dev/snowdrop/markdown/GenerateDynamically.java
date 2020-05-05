@@ -1,7 +1,6 @@
 package dev.snowdrop.markdown;
 
 import org.commonmark.node.*;
-import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.commonmark.renderer.text.TextContentRenderer;
 
