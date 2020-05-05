@@ -1,6 +1,9 @@
 package dev.snowdrop.markdown;
 
 import org.junit.Test;
+
+import java.util.HashMap;
+
 import static dev.snowdrop.github.Helper.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -43,8 +46,14 @@ public class GenerateReportTest {
             "\n" +
             "Gytis Trikleris\n" +
             "---------------\n" +
+            "- Item 1\n" +
+            "- Item 2\n" +
+            "- Item 3\n" +
             "Georgios Andrianakis\n" +
-            "--------------------" +
+            "--------------------\n" +
+            "- Item 1\n" +
+            "- Item 2\n" +
+            "- Item 3" +
             "\n";
 
     @Test
@@ -58,6 +67,8 @@ public class GenerateReportTest {
     @Test
     public void VerifyWeeklyReportSample() {
         String[] associates = {"Gytis Trikleris", "Georgios Andrianakis"};
+        HashMap<String, Object> teamTasks = new HashMap<String, Object>();
+
         StringBuilder sb = new StringBuilder();
         sb.append(addHeadingTitle("Snowdrop weekly report : 01-Mar-2020",1))
           .append(CR).append(CR)
@@ -70,6 +81,7 @@ public class GenerateReportTest {
 
         for(String associate: associates) {
             sb.append(addHeadingTitle(associate,2)).append(CR);
+            sb.append(addUnorderedList(new String[]{"Item 1", "Item 2", "Item 3"})).append(CR);
         }
 
         String result = sb.toString();
