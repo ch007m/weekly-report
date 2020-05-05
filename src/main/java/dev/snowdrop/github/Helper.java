@@ -15,23 +15,19 @@ public class Helper {
     private static String CR = "\n";
 
     public static String PopulateReport() {
-        StringBuilder sb = new StringBuilder()
-                .append(addText("I am normal"))
-                .append(addHeadingTitle("Heading with level 1", 1))
-                .append(addHeadingTitle("Heading with level 2", 2))
-                .append(addHeadingTitle("Heading with level 3", 3));
+        StringBuilder sb = new StringBuilder();
 
-        List<Object> items = Arrays.asList(
-                "Item 1",
-                "Item 2",
-                new UnorderedList<>(Arrays.asList(
-                        "Item 2.1",
-                        "Item 2.2",
-                        "Item 2.3"
-                )),
-                "Item 3"
-        );
-        sb.append(new UnorderedList<>(items));
+        sb.append(addText("I am normal"))
+          .append(CR)
+          .append(addHeadingTitle("Heading with level 1", 1))
+          .append(CR)
+          .append(addHeadingTitle("Heading with level 2", 2))
+          .append(CR)
+          .append(addHeadingTitle("Heading with level 3", 3))
+          .append(CR)
+          .append(addUnorderedList("Item 1", "Item 2", "Item 3"))
+          .append(CR);
+
 
         List<TaskListItem> taskItems = Arrays.asList(
                 new TaskListItem("Task 1", true),
@@ -48,20 +44,34 @@ public class Helper {
         for (int i = 1; i <= 20; i++) {
             tableBuilder.addRow(i, "TODO");
         }
-        sb.append(tableBuilder.build());
+        sb.append(tableBuilder.build()).append(CR);
 
         return sb.toString();
     }
 
-    private static StringBuilder addHeadingTitle(String title, int level) {
+    public static StringBuilder addHeadingTitle(String title, int level) {
         return new StringBuilder()
-                .append(new Heading(title, level))
-                .append(CR);
+                .append(new Heading(title, level));
     }
-    private static StringBuilder addText(String txt) {
+    public static StringBuilder addText(String txt) {
         return new StringBuilder()
-                .append(new Text(txt))
-                .append(CR);
+                .append(new Text(txt));
+    }
+
+    public static StringBuilder addUnorderedList(String... items) {
+        List<String> l = Arrays.asList(items);
+        return new StringBuilder().append(new UnorderedList<String>(l));
+    }
+
+    public static StringBuilder addActionItemsTable() {
+        Table.Builder tableBuilder = new Table.Builder()
+                .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
+                .addRow("Item","Description","Who","Status")
+                .addRow("001","TODO","chm","-");
+
+
+        return new StringBuilder().append(tableBuilder.build());
+
     }
 
 }
