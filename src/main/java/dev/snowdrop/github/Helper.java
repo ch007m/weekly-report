@@ -3,6 +3,7 @@ package dev.snowdrop.github;
 import net.steppschuh.markdowngenerator.list.TaskList;
 import net.steppschuh.markdowngenerator.list.TaskListItem;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
+import net.steppschuh.markdowngenerator.list.UnorderedListItem;
 import net.steppschuh.markdowngenerator.table.Table;
 import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
@@ -26,7 +27,7 @@ public class Helper {
           .append(CR)
           .append(addHeadingTitle("Heading with level 3", 3))
           .append(CR)
-          .append(addUnorderedList(null,"Item 1", "Item 2", "Item 3"))
+          .append(addUnorderedList(null,new String[]{"Item 1", "Item 2", "Item 3"}))
           .append(CR);
 
 
@@ -59,21 +60,20 @@ public class Helper {
                 .append(new Text(txt));
     }
 
-    public static StringBuilder addUnorderedList(List newList, Object... items) {
-        if (newList == null) {
-            newList = new ArrayList<>();
+    public static StringBuilder addUnorderedList(List uo, Object... items) {
+        if (uo == null) {
+            uo = new ArrayList<>();
         }
-        List<Object> listItems = Arrays.asList(items);
 
-        for(Object item : listItems) {
+        for(Object item : items) {
             if (item instanceof String) {
-                newList.add((String)item);
+                uo.add(new UnorderedListItem((String)item));
             } else if (item instanceof String[]) {
-                //addUnorderedList(newList,(String[])item);
-                newList.add(new UnorderedList<String>(Arrays.asList((String[])item)));
+                uo.add(new UnorderedList());
+                return addUnorderedList(uo,item);
             }
         }
-        return new StringBuilder().append(new UnorderedList<>(newList));
+        return new StringBuilder().append(new UnorderedList<>(uo));
     }
 
     public static StringBuilder addActionItemsTable() {

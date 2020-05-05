@@ -83,7 +83,7 @@ public class GenerateReportTest {
 
         for(String associate: associates) {
             sb.append(addHeadingTitle(associate,2)).append(CR);
-            sb.append(addUnorderedList(null,new Object[]{"Item 1", "Item 2", new String[]{"Item 1.1", "Item 1.2"}})).append(CR);
+            sb.append(addUnorderedList(null,new Object[]{"Item 1", "Item 2", new String[]{"Item 1.1", "Item 1.2"},new String[]{"Item 1.1.1", "Item 1.1.2"}})).append(CR);
         }
 
         String result = sb.toString();
