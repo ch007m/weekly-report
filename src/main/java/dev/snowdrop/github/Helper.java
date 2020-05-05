@@ -4,24 +4,22 @@ import net.steppschuh.markdowngenerator.list.TaskList;
 import net.steppschuh.markdowngenerator.list.TaskListItem;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
 import net.steppschuh.markdowngenerator.table.Table;
-import net.steppschuh.markdowngenerator.text.emphasis.BoldText;
-import net.steppschuh.markdowngenerator.text.emphasis.ItalicText;
-import net.steppschuh.markdowngenerator.text.emphasis.StrikeThroughText;
+import net.steppschuh.markdowngenerator.text.Text;
 import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Helper {
+
+    private static String CR = "\n";
+
     public static String PopulateReport() {
         StringBuilder sb = new StringBuilder()
-                .append(new net.steppschuh.markdowngenerator.text.Text("I am normal")).append("\n")
-                .append(new BoldText("I am bold")).append("\n")
-                .append(new ItalicText("I am italic")).append("\n")
-                .append(new StrikeThroughText("I am strike-through")).append("\n")
-                .append(new Heading("Heading with level 1", 1)).append("\n")
-                .append(new Heading("Heading with level 2", 2)).append("\n")
-                .append(new Heading("Heading with level 3", 3)).append("\n");
+                .append(addText("I am normal"))
+                .append(addHeadingTitle("Heading with level 1", 1))
+                .append(addHeadingTitle("Heading with level 2", 2))
+                .append(addHeadingTitle("Heading with level 3", 3));
 
         List<Object> items = Arrays.asList(
                 "Item 1",
@@ -40,18 +38,30 @@ public class Helper {
                 new TaskListItem("Task 2", false),
                 new TaskListItem("Task 3")
         );
-        sb.append(new TaskList(taskItems));
+        sb.append(new TaskList(taskItems)).append(CR);
 
         Table.Builder tableBuilder = new Table.Builder()
                 .withAlignments(Table.ALIGN_RIGHT, Table.ALIGN_LEFT)
                 .withRowLimit(7)
-                .addRow("Index", "Boolean");
+                .addRow("Index", "String");
 
         for (int i = 1; i <= 20; i++) {
-            tableBuilder.addRow(i, Math.random() > 0.5);
+            tableBuilder.addRow(i, "TODO");
         }
         sb.append(tableBuilder.build());
 
         return sb.toString();
     }
+
+    private static StringBuilder addHeadingTitle(String title, int level) {
+        return new StringBuilder()
+                .append(new Heading(title, level))
+                .append(CR);
+    }
+    private static StringBuilder addText(String txt) {
+        return new StringBuilder()
+                .append(new Text(txt))
+                .append(CR);
+    }
+
 }
