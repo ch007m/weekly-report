@@ -1,5 +1,6 @@
 package dev.snowdrop.markdown;
 
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -71,7 +72,7 @@ public class GenerateReportTest {
             "\n";
 
     @Test
-    public void VerifyDummySample() {
+    public void VerifyDummySample() throws MarkdownSerializationException {
         String result = PopulateReport();
 
         assertNotNull(result);
@@ -79,7 +80,7 @@ public class GenerateReportTest {
     }
 
     @Test
-    public void VerifyWeeklyReportSample() {
+    public void VerifyWeeklyReportSample() throws MarkdownSerializationException {
         String[] associates = {"Gytis Trikleris", "Georgios Andrianakis"};
         HashMap<String, Object> teamTasks = new HashMap<String, Object>();
 
@@ -95,7 +96,7 @@ public class GenerateReportTest {
 
         for(String associate: associates) {
             sb.append(addHeadingTitle(associate,2)).append(CR);
-            sb.append(addUnorderedList(null,nestedList)).append(CR);
+            sb.append(toMarkdown(nestedList)).append(CR);
         }
 
         String result = sb.toString();

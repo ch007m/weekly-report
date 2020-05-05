@@ -1,5 +1,6 @@
 package dev.snowdrop.github;
 
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 import org.kohsuke.github.*;
 
 import java.io.IOException;
@@ -49,6 +50,8 @@ public class CreateIssue {
             System.out.printf("Issue %s!%n",issue.getTitle());
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (MarkdownSerializationException e) {
             e.printStackTrace();
         }
     }

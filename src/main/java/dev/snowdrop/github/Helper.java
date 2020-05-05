@@ -1,5 +1,6 @@
 package dev.snowdrop.github;
 
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
 import net.steppschuh.markdowngenerator.list.TaskList;
 import net.steppschuh.markdowngenerator.list.TaskListItem;
 import net.steppschuh.markdowngenerator.list.UnorderedList;
@@ -10,13 +11,14 @@ import net.steppschuh.markdowngenerator.text.heading.Heading;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Helper {
 
     private static String CR = "\n";
 
-    public static String PopulateReport() {
+    public static String PopulateReport() throws MarkdownSerializationException {
         StringBuilder sb = new StringBuilder();
 
         sb.append(addText("I am normal"))
@@ -27,7 +29,7 @@ public class Helper {
           .append(CR)
           .append(addHeadingTitle("Heading with level 3", 3))
           .append(CR)
-          .append(addUnorderedList(null,new String[]{"Item 1", "Item 2", "Item 3"}))
+          .append(toMarkdown(new String[]{"Item 1", "Item 2", "Item 3"}))
           .append(CR);
 
 
@@ -60,20 +62,22 @@ public class Helper {
                 .append(new Text(txt));
     }
 
-    public static StringBuilder addUnorderedList(List uo, Object... items) {
-        if (uo == null) {
-            uo = new ArrayList<>();
-        }
+    public static UnorderedList getUnorderedList(Object... items) {
+        List list = new LinkedList();
 
-        for(Object item : items) {
+        for (Object item : items) {
             if (item instanceof String) {
-                uo.add(new UnorderedListItem((String)item));
+                list.add(new UnorderedListItem(item));
             } else if (item instanceof String[]) {
-                uo.add(new UnorderedList());
-                return addUnorderedList(uo,item);
+                list.add(getUnorderedList(item));
             }
         }
-        return new StringBuilder().append(new UnorderedList<>(uo));
+
+        return new UnorderedList(list);
+    }
+
+    public static String toMarkdown(Object... items) throws MarkdownSerializationException {
+        return getUnorderedList(items).serialize();
     }
 
     public static StringBuilder addActionItemsTable() {
@@ -84,7 +88,6 @@ public class Helper {
 
 
         return new StringBuilder().append(tableBuilder.build());
-
     }
 
 }
