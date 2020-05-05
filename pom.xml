@@ -11,6 +11,7 @@
     <properties>
         <commonmark.version>0.14.0</commonmark.version>
         <flexmark.version>0.61.24</flexmark.version>
+        <github-api.version>1.111</github-api.version>
 
         <!-- Java version -->
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -41,10 +42,19 @@
             <version>${flexmark.version}</version>
         </dependency>
 
+        <!-- String appender to generate Markdown format -->
         <dependency>
             <groupId>net.steppschuh.markdowngenerator</groupId>
             <artifactId>markdowngenerator</artifactId>
             <version>1.3.1.1</version>
+        </dependency>
+
+        <!-- Github API -->
+        <!-- https://mvnrepository.com/artifact/org.kohsuke/github-api -->
+        <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>github-api</artifactId>
+            <version>${github-api.version}</version>
         </dependency>
     </dependencies>
 
