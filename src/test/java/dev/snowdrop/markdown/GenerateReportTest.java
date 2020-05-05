@@ -40,6 +40,11 @@ public class GenerateReportTest {
             "|  001 | TODO        | chm | -      |\n" +
             "\n" +
             "---" +
+            "\n" +
+            "Gytis Trikleris\n" +
+            "---------------\n" +
+            "Georgios Andrianakis\n" +
+            "--------------------" +
             "\n";
 
     @Test
@@ -52,6 +57,7 @@ public class GenerateReportTest {
 
     @Test
     public void VerifyWeeklyReportSample() {
+        String[] associates = {"Gytis Trikleris", "Georgios Andrianakis"};
         StringBuilder sb = new StringBuilder();
         sb.append(addHeadingTitle("Snowdrop weekly report : 01-Mar-2020",1))
           .append(CR).append(CR)
@@ -61,6 +67,10 @@ public class GenerateReportTest {
           .append(CR).append(CR)
           .append("---")
           .append(CR);
+
+        for(String associate: associates) {
+            sb.append(addHeadingTitle(associate,2)).append(CR);
+        }
 
         String result = sb.toString();
 
