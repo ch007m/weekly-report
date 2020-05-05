@@ -10,6 +10,18 @@ import static org.junit.Assert.assertNotNull;
 
 public class GenerateReportTest {
 
+    private static Object[] nestedList = new Object[]{
+            "Item 1",
+            "Item 2",
+            new Object[]{
+                    "Item 1.1",
+                    "Item 1.2",
+                    new Object[]{
+                            "Item 1.1.1",
+                            "Item 1.1.2"
+                    }
+            }
+    };
     private static String CR = "\n";
     private static String DUMMY_SAMPLE = "I am normal\n" +
             "Heading with level 1\n" +
@@ -83,7 +95,7 @@ public class GenerateReportTest {
 
         for(String associate: associates) {
             sb.append(addHeadingTitle(associate,2)).append(CR);
-            sb.append(addUnorderedList(null,new Object[]{"Item 1", "Item 2", new String[]{"Item 1.1", "Item 1.2"},new String[]{"Item 1.1.1", "Item 1.1.2"}})).append(CR);
+            sb.append(addUnorderedList(null,nestedList)).append(CR);
         }
 
         String result = sb.toString();
