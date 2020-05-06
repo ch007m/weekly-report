@@ -70,18 +70,6 @@ public class Helper {
             }
         }
     }
-    public static UnorderedList getUnorderedList(Object... items) {
-        List list = new LinkedList();
-
-        for (Object item : items) {
-            if (item instanceof String) {
-                list.add(new UnorderedListItem(item));
-            } else if (item instanceof Object[]) {
-                list.add(getUnorderedList(item));
-            }
-        }
-        return new UnorderedList(list);
-    }
 
     public static String toMarkdown(Object... items) throws MarkdownSerializationException {
         UnorderedList unorderedList = new UnorderedList();
