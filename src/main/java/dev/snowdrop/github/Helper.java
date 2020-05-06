@@ -84,7 +84,6 @@ public class Helper {
     }
 
     public static String toMarkdown(Object... items) throws MarkdownSerializationException {
-        //return getUnorderedList(items).serialize();
         UnorderedList unorderedList = new UnorderedList();
         populateNestedLists(items, unorderedList);
         return unorderedList.serialize();
