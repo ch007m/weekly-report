@@ -16,11 +16,11 @@ public class GenerateReportTest {
             "Item 2",
             new Object[]{
                     "Item 1.1",
-                    "Item 1.2",
                     new Object[]{
                             "Item 1.1.1",
                             "Item 1.1.2"
-                    }
+                    },
+                    "Item 1.2",
             }
     };
     private static String CR = "\n";
@@ -62,12 +62,16 @@ public class GenerateReportTest {
             "- Item 1\n" +
             "- Item 2\n" +
             "  - Item 1.1\n" +
+            "    - Item 1.1.1\n" +
+            "    - Item 1.1.2\n" +
             "  - Item 1.2\n" +
             "Georgios Andrianakis\n" +
             "--------------------\n" +
             "- Item 1\n" +
             "- Item 2\n" +
             "  - Item 1.1\n" +
+            "    - Item 1.1.1\n" +
+            "    - Item 1.1.2\n" +
             "  - Item 1.2" +
             "\n";
 
