@@ -59,18 +59,16 @@ public class Helper {
                 .append(new Text(txt));
     }
 
-    public static UnorderedList populateNestedLists(UnorderedList unorderedList, Object[] items) {
-        if ( unorderedList == null) {
-            unorderedList = new UnorderedList();
-        }
+    public static void populateNestedLists(Object[] items, UnorderedList unorderedList) {
         for (Object item : items) {
             if (item instanceof String) {
                 unorderedList.getItems().add(item);
             } else if (item instanceof Object[]) {
-                return populateNestedLists(null, (Object[]) item);
+                UnorderedList sublist = new UnorderedList();
+                unorderedList.getItems().add(sublist);
+                populateNestedLists((Object[]) item, sublist);
             }
         }
-        return unorderedList;
     }
     public static UnorderedList getUnorderedList(Object... items) {
         List list = new LinkedList();
@@ -87,7 +85,9 @@ public class Helper {
 
     public static String toMarkdown(Object... items) throws MarkdownSerializationException {
         //return getUnorderedList(items).serialize();
-        return populateNestedLists(null, items).toString();
+        UnorderedList unorderedList = new UnorderedList();
+        populateNestedLists(items, unorderedList);
+        return unorderedList.serialize();
     }
 
     protected static StringBuilder iterateParentBuilder(StringBuilder sb, MarkdownBuilder b) {
