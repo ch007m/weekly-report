@@ -9,7 +9,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class CreateIssue {
 
-    private static String TEAM_REPO = "snowdrop/snowdrop-team";
+    private static String TEAM_REPO = "snowdrop/team";
 
     public static void main(String[] args) {
 

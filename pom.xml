@@ -11,7 +11,7 @@
     <properties>
         <commonmark.version>0.14.0</commonmark.version>
         <flexmark.version>0.61.24</flexmark.version>
-        <github-api.version>1.111</github-api.version>
+        <github-api.version>1.112-SNAPSHOT</github-api.version>
 
         <!-- Java version -->
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -55,6 +55,12 @@
             <groupId>org.kohsuke</groupId>
             <artifactId>github-api</artifactId>
             <version>${github-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
