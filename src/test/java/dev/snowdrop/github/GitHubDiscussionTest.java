@@ -85,4 +85,12 @@ public class GitHubDiscussionTest {
             }
         };
     }
+
+    @Test
+    public void test6GitHubDiscussionById() throws Exception {
+        GHOrganization org = hub.getOrganization(ORG);
+        GHTeam team = org.getTeamByName(TEAM_NAME);
+        GHDiscussion d = team.getDiscussion("1");
+        assertNotNull(d);
+    }
 }
