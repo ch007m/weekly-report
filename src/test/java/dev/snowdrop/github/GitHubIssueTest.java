@@ -9,7 +9,7 @@ import java.io.IOException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class GithubIssueTest {
+public class GitHubIssueTest {
 
     private GitHub hub;
     private static String TEAM_REPO = "snowdrop/snowdrop-team";
