@@ -55,6 +55,7 @@ public class GitHubDiscussionTest {
             if (d.getTitle().equals("Weekly report - 22")) {
                 team.updateDiscussion()
                     .body("this is the new body")
+                    .title("this is the new title")
                     .update(d.getNumber());
             }
         };
@@ -79,7 +80,7 @@ public class GitHubDiscussionTest {
         GHDiscussion discussion;
 
         for (GHDiscussion d : team.listDiscussions()) {
-            if (d.getTitle().equals("Weekly report - 22")) {
+            if ( d.getTitle().equals("Weekly report - 22") || d.getTitle().equals("this is the new title")) {
                 team.deleteDiscussion(d.getNumber());
             }
         };
