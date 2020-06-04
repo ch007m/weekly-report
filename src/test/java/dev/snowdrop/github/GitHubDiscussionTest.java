@@ -1,7 +1,9 @@
 package dev.snowdrop.github;
 
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.kohsuke.github.*;
 
 import java.io.IOException;
@@ -10,6 +12,7 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GitHubDiscussionTest {
 
     private GitHub hub;
@@ -23,12 +26,12 @@ public class GitHubDiscussionTest {
     }
 
     @Test
-    public void testGitHubWithOauthToken() throws Exception {
+    public void test1GitHubWithOauthToken() throws Exception {
         assertEquals("https://api.github.com", hub.getApiUrl());
     }
 
     @Test
-    public void testGitHubDiscussionWithMarkdownBody() throws Exception {
+    public void test2GitHubDiscussionWithMarkdownBody() throws Exception {
         String markdownText = "cmoulliard\n" +
                 "----------\n" +
                 "- 1 - Community engagement\n" +
@@ -45,7 +48,20 @@ public class GitHubDiscussionTest {
     }
 
     @Test
-    public void testGitHubListDiscussions() throws Exception {
+    public void test3GitHubUpdateDiscussion() throws Exception {
+        GHOrganization org = hub.getOrganization(ORG);
+        GHTeam team = org.getTeamByName(TEAM_NAME);
+        for (GHDiscussion d : team.listDiscussions()) {
+            if (d.getTitle().equals("Weekly report - 22")) {
+                team.updateDiscussion()
+                    .body("this is the new body")
+                    .update(d.getNumber());
+            }
+        };
+    }
+
+    @Test
+    public void test4GitHubListDiscussions() throws Exception {
         GHOrganization org = hub.getOrganization(ORG);
         GHTeam team = org.getTeamByName(TEAM_NAME);
         Set<GHDiscussion> all = new HashSet<GHDiscussion>();
@@ -54,5 +70,18 @@ public class GitHubDiscussionTest {
             all.add(d);
         };
         assertFalse(all.isEmpty());
+    }
+
+    @Test
+    public void test5GitHubDeleteDiscussions() throws Exception {
+        GHOrganization org = hub.getOrganization(ORG);
+        GHTeam team = org.getTeamByName(TEAM_NAME);
+        GHDiscussion discussion;
+
+        for (GHDiscussion d : team.listDiscussions()) {
+            if (d.getTitle().equals("Weekly report - 22")) {
+                team.deleteDiscussion(d.getNumber());
+            }
+        };
     }
 }
