@@ -11,7 +11,8 @@
     <properties>
         <commonmark.version>0.14.0</commonmark.version>
         <flexmark.version>0.61.24</flexmark.version>
-        <github-api.version>1.112-SNAPSHOT</github-api.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <github-api.version>1.113</github-api.version>
 
         <!-- Java version -->
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -50,7 +51,6 @@
         </dependency>
 
         <!-- Github API -->
-        <!-- https://mvnrepository.com/artifact/org.kohsuke/github-api -->
         <dependency>
             <groupId>org.kohsuke</groupId>
             <artifactId>github-api</artifactId>
@@ -60,6 +60,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

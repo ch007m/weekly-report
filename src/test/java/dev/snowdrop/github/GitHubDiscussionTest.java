@@ -6,10 +6,12 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.kohsuke.github.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -17,8 +19,7 @@ public class GitHubDiscussionTest {
 
     private GitHub hub;
     private static String ORG = "snowdrop";
-    private static String TEAM_NAME = "Team snowdrop";
-    private static String TEAM_SLUG = "team-snowdrop";
+    private static String TEAM_NAME = "Admin";
 
     @Before
     public void setUp() throws IOException {
@@ -42,7 +43,7 @@ public class GitHubDiscussionTest {
 
         GHDiscussion d = team.createDiscussion("Weekly report - 22")
                 .body(markdownText)
-                .create();
+                .done();
 
         assertNotNull(d);
     }
@@ -53,10 +54,10 @@ public class GitHubDiscussionTest {
         GHTeam team = org.getTeamByName(TEAM_NAME);
         for (GHDiscussion d : team.listDiscussions()) {
             if (d.getTitle().equals("Weekly report - 22")) {
-                team.updateDiscussion()
+                d.update()
                     .body("this is the new body")
                     .title("this is the new title")
-                    .update(d.getNumber());
+                    .done();
             }
         };
     }
@@ -77,20 +78,30 @@ public class GitHubDiscussionTest {
     public void test5GitHubDeleteDiscussions() throws Exception {
         GHOrganization org = hub.getOrganization(ORG);
         GHTeam team = org.getTeamByName(TEAM_NAME);
-        GHDiscussion discussion;
-
-        for (GHDiscussion d : team.listDiscussions()) {
+        GHDiscussion discussion = null;
+        Set<GHDiscussion> all = team.listDiscussions().toSet();
+        for (GHDiscussion d : all) {
             if ( d.getTitle().equals("Weekly report - 22") || d.getTitle().equals("this is the new title")) {
-                team.deleteDiscussion(d.getNumber());
+                d.delete();
+                discussion = d;
+                break;
             }
         };
+
+        try {
+            team.getDiscussion(discussion.getNumber());
+            fail();
+        } catch (FileNotFoundException e) {
+            assertThat(e.getMessage(),
+                    containsString("https://developer.github.com/v3/teams/discussions/#get-a-single-discussion"));
+        }
     }
 
     @Test
     public void test6GitHubDiscussionById() throws Exception {
         GHOrganization org = hub.getOrganization(ORG);
         GHTeam team = org.getTeamByName(TEAM_NAME);
-        GHDiscussion d = team.getDiscussion("1");
+        GHDiscussion d = team.getDiscussion(1);
         assertNotNull(d);
     }
 }
