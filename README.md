@@ -10,6 +10,7 @@ pandoc -f docbook -t gfm weekly-report-example.xml -o weekly-report-example.md
 
 - [Asciidoctor java extension](https://github.com/asciidoctor/asciidoctorj/blob/v2.2.0/docs/integrator-guide.adoc): Guide to write asciidoctor extension
 - [Markdowngenerator](https://github.com/Steppschuh/Java-Markdown-Generator): Java library to generate markdown
+- [kohsuke - hub4j](https://github.com/hub4j/github-api): Java API for GitHub
 
 ## Evaluated only
 
