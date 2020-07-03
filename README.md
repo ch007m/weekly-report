@@ -1,4 +1,4 @@
-## R&D : Generate asciidoctor/markdown report and store then on github
+## R&D : Generate asciidoctor/markdown report and store them on github
 
 - Convert asciidoctor to github markdown flavored
 ```bash
